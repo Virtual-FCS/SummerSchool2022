@@ -1,0 +1,11 @@
+ocv.v = a1 + b1 * (20) * 1 / SOC + c1 / sqrt(SOC) + d1 * SOC + e1 * log(SOC) + f1 * log(1.01 - SOC) + g1 * log(1.001 - SOC) + h1 * exp(i1 * (0));
+
+Real a1 = 3.25;
+  Real b1 = -1e-4;
+  Real c1 = -0.08;
+  Real d1 = 0.07;
+  Real e1 = -0.02;
+  Real f1 = -0.01;
+  Real g1 = -0.06;
+  Real h1 = -0.02;
+  Real i1 = -0.002;
