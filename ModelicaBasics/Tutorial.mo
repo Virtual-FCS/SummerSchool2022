@@ -6,7 +6,6 @@ model Tutorial "The first tutortial"
   parameter Real C1(unit="F") = 5000 "Capacitance of the first RC capacitor";
   parameter Real C2(unit="F") = 20000 "Capacitance of the second RC capacitor";
   
-  
   Real a1 = 3.25;
   Real b1 = -1e-4;
   Real c1 = -0.08;
@@ -16,8 +15,7 @@ model Tutorial "The first tutortial"
   Real g1 = -0.06;
   Real h1 = -0.02;
   Real i1 = -0.002;
-  
-  
+   
   Modelica.Electrical.Analog.Basic.Resistor resistor(R = R0, alpha = 0.005)  annotation(
     Placement(visible = true, transformation(origin = {-40, 62}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Basic.Ground ground annotation(
@@ -31,7 +29,7 @@ model Tutorial "The first tutortial"
   Modelica.Electrical.Analog.Basic.Capacitor capacitor1(C = C2, v(fixed = true))  annotation(
     Placement(visible = true, transformation(origin = {40, 84}, extent = {{-10, -10}, {10, 10}}, rotation = 0)));
   Modelica.Electrical.Analog.Sensors.CurrentSensor currentSensor annotation(
-    Placement(visible = true, transformation(origin = {50, -30}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
+    Placement(visible = true, transformation(origin = {50, -20}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression realExpression(y = 2 * 3600)  annotation(
     Placement(visible = true, transformation(origin = {70, -60}, extent = {{10, -10}, {-10, 10}}, rotation = 0)));
   Modelica.Blocks.Sources.RealExpression realExpression1(y = 0.95) annotation(
@@ -63,7 +61,7 @@ equation
   connect(capacitor1.n, resistor2.n) annotation(
     Line(points = {{50, 84}, {60, 84}, {60, 44}, {50, 44}}, color = {0, 0, 255}));
   connect(currentSensor.i, division.u1) annotation(
-    Line(points = {{50, -41}, {50, -52}, {34, -52}, {34, -50}}, color = {0, 0, 127}));
+    Line(points = {{50, -31}, {50, -52}, {34, -52}, {34, -50}}, color = {0, 0, 127}));
   connect(realExpression.y, division.u2) annotation(
     Line(points = {{58, -60}, {34, -60}, {34, -60}, {34, -60}}, color = {0, 0, 127}));
   connect(integrator.u, division.y) annotation(
@@ -81,9 +79,9 @@ equation
   connect(ocv.n, ground.p) annotation(
     Line(points = {{-68, 0}, {-68, -80}}, color = {0, 0, 255}));
   connect(currentSensor.n, ocv.n) annotation(
-    Line(points = {{40, -30}, {-68, -30}, {-68, 0}}, color = {0, 0, 255}));
+    Line(points = {{40, -20}, {-68, -20}, {-68, 0}}, color = {0, 0, 255}));
   connect(currentSensor.p, stepCurrent.n) annotation(
-    Line(points = {{60, -30}, {76, -30}, {76, 0}}, color = {0, 0, 255}));
+    Line(points = {{60, -20}, {76, -20}, {76, 0}}, color = {0, 0, 255}));
   annotation(
     uses(Modelica(version = "3.2.3")),
     Documentation(info = "<html><head></head><body>This is a cool first tutorial to demonstrate some basic concepts.</body></html>"));
